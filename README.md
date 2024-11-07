@@ -17,7 +17,7 @@
      CONSTRAINT "TODO_PK" PRIMARY KEY ("PID")
    )
 
-# Next go to tables select the ToDo table then select triggers, after selecting triigers go to the pk trigger thats alrad created, delete the code thats there and then compile and save this code were it was:
+# Next go to tables select the ToDo table then select triggers, after selecting trigers go to the pk trigger thats alrad created, delete the code thats there and then compile and save this code were it was:
 
 
  create or replace TRIGGER "TODO_PK"

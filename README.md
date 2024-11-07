@@ -19,18 +19,29 @@
 
 # Next go to tables select the ToDo table then select triggers, after selecting triigers go to the pk trigger thats alrad created, delete the code thats there and then compile and save this code were it was:
 
- create or replace TRIGGER "TODO_PK"
-  before insert or update
-  on TODO
-  for each row
-  begin
-     if inserting then
-       if :NEW.PID is null then
-           select nvl(max(pid),0) + 1
-           into :NEW.PID
-           from TODO;
-       end if;
 
+ create or replace TRIGGER "TODO_PK"
+ 
+  before insert or update
+  
+  on TODO
+  
+  for each row
+  
+  begin
+  
+     if inserting then
+     
+       if :NEW.PID is null then
+       
+           select nvl(max(pid),0) + 1
+           
+           into :NEW.PID
+           
+           from TODO;
+           
+       end if;
+       
         :NEW.INSERT_DATE := localtimestamp;
         :NEW.INSERT_BY := nvl(v('APP_USER'),USER);
     end if;
@@ -39,6 +50,7 @@
         :NEW.UPDATE_DATE := localtimestamp;
         :NEW.UPDATE_BY := nvl(v('APP_USER'),USER);
      end if;
+     
  end;
 
  Credit: CodeXpertise on YouTube
